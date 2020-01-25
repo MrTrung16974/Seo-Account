@@ -44,8 +44,8 @@
                     <i th:each="i:${#numbers.sequence(1,5)}" th:class="${game.getStar() >= i ?
                     'fa fa-star' : 'fa fa-star-o'}" class="fa fa-star" aria-hidden="true"></i>
                 </div>
-                <span th:text="${game.getOldPrice()}" style="color: #EB7F02; font-size: 12px;"><del>1.700.000 VND</del></span>
-                <span th:text="${game.getNewPrice()}" style="color: #EB7F02; font-size: 16px;">700.000 VND</span>
+                <span style="color: #EB7F02; font-size: 12px;"><del  th:text="${game.getOldPrice() + ' VND'}">1.700.000 VND</del></span>
+                <span th:text="${game.getNewPrice() + ' VND'}" style="color: #EB7F02; font-size: 16px;">700.000 VND</span>
                 <div class="rent">
                     <div class="rent-game"><a href="#">Thuê game</a></div>
                     <div class="price"><a href="#">3.000đ/3h</a></div>
@@ -118,8 +118,8 @@
                     <div class="overlay">
                         <div class="info-game">
                             <a th:href="@{${'/seo/' + gameGood.getId() + '/detail'}}" th:text="${gameGood.getName()}" style="color: white; font-size: 14px;">Fortnite Battle Royale</a>
-                            <span th:text="${gameGood.getOldPrice()}" style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                            <span  th:text="${gameGood.getNewPrice()}" style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
+                            <span style="color: #EB7F02; font-size: 8px;"><del th:text="${gameGood.getOldPrice() + ' VND'}" >1.700.000 VND</del></span>
+                            <span  th:text="${gameGood.getNewPrice() + ' VND'}" style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
                         </div>
                         <div class="like-buy-game">
                             <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>

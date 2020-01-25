@@ -272,7 +272,17 @@ div.col-game  {
     justify-content: center;
     background-position: center;
 }
-
+div.col-game > span {
+    border-radius: 2px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 2px;
+    background-color: #FF3B09;
+    color: white;
+    text-align: center;
+    font-size: 8px;
+}
 div.col-game > a {
     position: absolute;
     right: 0;
@@ -315,7 +325,7 @@ div.col-game > div.more-game > a {
     padding: 4px;
     border-radius: 7px;
     background-color: rgb(9, 69, 93, 0.5);
-    transition: background-color 0.5s
+    transition: background-color 0.5s;
 }
 div.col-game > div.more-game > span:hover {
     background-color: #00b1ff;
