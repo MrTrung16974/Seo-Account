@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Seo Acount</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" th:href="@{/img/icon/Origin.png}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style_home.css}">
+
+</head>
+<body>
+<!-- start ./ header -->
+<div th:replace="/default/header :: header"> </div>
+<!-- end ./ header -->
+
+<!-- start ./ banner -->
+<div class="banner">
+    <div class="overlay-banner"></div>
+    <div class="wapper">
+        <h1>METAL GEAR RISING REVENGEANCE</h1>
+        <p>Metal Gear Rising Revengeance là một game hành động chặt chém (hack và slash) được phát triển bởi Platinum Games và sản xuất bởi Kojima Productions.</p>
+        <a href="#">Chi tiết</a>
+    </div>
+</div>
+<!-- end ./ banner -->
+
+<!-- start ./ content -->
+<div class="container">
+    <div class="content">
+        <div class="menu">
+            <div class="game-flatform">
+                <span>GAME FLATFORM</span>
+            </div>
+            <div th:each="item,iter : ${lstItem}" th:class="${iter.index == 0 ? 'steam fix active-top' : 'steam fix'}">
+                <img width="20" height="20" th:src="@{'/img/icon/' + ${item.getImg()} + '.png'}" alt="steam">
+                <span th:text="${item.getName()}">Steam</span>
+            </div>
+        </div>
+        <div class="top-content">
+            <div class="sort-item">
+                <a href="#">Sắp xếp theo</a>
+                <select name="sort">
+                    <option value="Mặc định">Mặc đinh</option>
+                    <option value="Time">Time modified</option>
+                    <option value="Size">Size
+                    </option>
+                    <option value="Name">Name</option>
+                    <option value="Item file">Item file</option>
+                </select>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="clear"></div>
+            <div class="list-game">
+                <div th:each="game : ${allLstGame}" class="col-game"
+                     th:style="'background-image: url(img/gamebg/bg'+ ${game.getImage()} +'.jpg);'" >
+                    <span th:text="'-' + ${game.getPromation()} + '%'">-70%</span>
+                    <div class="info-game">
+                        <a th:href="@{${'/seo/' + game.getId() + '/detail'}}" th:text="${game.getName()}" class="title-game">Fortnite Battle Royale</a>
+                        <p><del style="color: #fff;font-family: auto;" th:text="${game.getOldPrice() + 'VND'}">1.700.000 VND</del></p>
+                        <p th:text="${#numbers.formatDecimal(game.getNewPrice(), 0, 'COMMA', 4, 'POINT')} + ' VNĐ'" class="prices-game">700.000 VND</p>
+                    </div>
+                    <div class="more-game">
+                        <a th:href="@{'/love/' + ${game.getId()}}"><i class="far fa-heart"></i></a>
+                        <a th:href="@{'home/'+ ${game.getId()}}">Thêm vào giỏ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <span>...</span>
+                <a href="">16</a>
+                <a style="width: 40px;" href="#">Next</a>
+            </div>
+        </div>
+        <div class="top-game">
+            <div class="active-div">
+                <span>top thuê game nhiều</span>
+            </div>
+            <div>
+                <span>top game đươc thuê nhiều nhất</span>
+            </div>
+            <div>
+                <span>top game mới nhất</span>
+            </div>
+        </div>
+        <div class="content-moregame">
+            <div class="slide-top">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div th:each="game,iter : ${slideGame}" th:class="${iter.index == 0 ? 'carousel-item active' : 'carousel-item'}">
+                            <img width="100%" height="350px" th:src="@{'/img/gamebg/bg' + ${game.getImage()} + '.jpg'}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 th:text="${game.getName()}">First slide label</h5>
+                                <p>Metal Gear Rising Revengeance là một game hành động chặt chém (hack và slash) được phát triển bởi Platinum Games và sản xuất bởi Kojima.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="list-game-content">
+                <div th:each="game : ${goodLstGame}" class="col-game"
+                     th:style="'background-image: url(img/gamebg/bg'+ ${game.getImage()} +'.jpg);'" >
+                    <span th:text="'-' + ${game.getPromation()} + '%'">-70%</span>
+                    <div class="info-game">
+                        <a th:href="@{${'/seo/' + game.getId() + '/detail'}}" th:text="${game.getName()}" class="title-game">Fortnite Battle Royale</a>
+                        <p><del style="color: #fff;font-family: auto;" th:text="${game.getOldPrice() + 'VND'}">1.700.000 VND</del></p>
+                        <p th:text="${#numbers.formatDecimal(game.getNewPrice(), 0, 'COMMA', 4, 'POINT')} + ' VNĐ'" class="prices-game">700.000 VND</p>
+                    </div>
+                    <div class="more-game">
+                        <i class="fas fa-heart"></i>
+                        <a th:href="@{'/home/'+ ${game.getId()}}" >Thêm vào giỏ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- end ./ content -->
+
+<!-- start ./ footer-->
+<div th:replace="/default/footer :: footer"> </div>
+<!--end ./ footer-->
+
+<!-- start ./ messenger-->
+<div th:replace="/default/footer :: messenger"> </div>
+<!--end ./ messenger-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Seo Acount</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" th:href="@{/img/icon/Origin.png}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style_home.css}">
+</head>
+<body>
+
+<!-- start ./ header -->
+    <div th:replace="/default/header :: header"> </div>
+<!-- end ./ header -->
+
+<!--  start ./content  -->
+    <div class="content-parcle">
+        <div class="container">
+            <div class="info">
+                   <p>Giỏ hàng của bạn: (<span th:text="${basketSize}"></span> SẢN PHẨM)</p>
+            </div>
+            <div style="border-bottom: 1px solid #966060;" th:each="basket: ${basketGame}" class="my-game">
+                <img width="100px" height="100px" th:src="@{'/img/gamebg/bg' + ${basket.getImage()} + '.jpg'}" alt="">
+                <div class="info-game">
+                    <a th:href="@{${'/seo/' + basket.getId() + '/detail'}}" class="title-game" th:text="${basket.getName()}"></a>
+                    <p class="describe-game">Metal Gear Rising Revengeance là một game hành động chặt chém (hack và slash) được phát triển bởi Platinum Games và sản xuất bởi Kojima.</p>
+                </div>
+                <div class="price">
+                    <p style="color: red; font-size: 20px;" th:text="${basket.getNewPrice() + ' VND'}">7.000 VND</p>
+                    <p><del th:text="${basket.getOldPrice()} + 'VND'">1.700.000 VND</del></p>
+                    <p th:text="${'-' + basket.getPromation() + '%'}"></p>
+                </div>
+                <div class="btn">
+                    <a th:href="@{'/deletes/' + ${basket.getId()}}" type="button"><i class="fas fa-trash-alt"></i></a>
+                    <a th:href="@{'/love/' + ${basket.getId()}}" type="button"><i class="far fa-heart"></i></a>
+                </div>
+            </div>
+            <a style="margin: 12px;" class="btn">Thuê Game</a>
+        </div>
+    </div>
+<!-- end ./ content -->
+
+<!-- start ./ footer-->
+    <div th:replace="/default/footer :: footer"> </div>
+<!--end ./ footer-->
+
+<!-- start ./ messenger-->
+    <div th:replace="/default/footer :: messenger"> </div>
+<!--end ./ messenger-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+</script>
+
+</body>
+</html>

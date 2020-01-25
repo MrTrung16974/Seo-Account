@@ -1,0 +1,114 @@
+<div xmlns:th="http://www.thymeleaf.org">
+<!-- start ./ header -->
+<nav  th:fragment="header" class="header">
+    <div class="container fix">
+        <div class="logo">
+        </div>
+        <div class="home">
+            <img width="12px" height="12px" th:src="@{/img/icon/home.png}"  alt="home">
+            <a style="color: #2CBCFC;" th:href="@{/home}">Home</a>
+        </div>
+        <div class="game-genre">
+            <img width="12px" height="12px" th:src="@{/img/icon/gamecata.png}" alt="game">
+            <span>Thể loại game</span>
+            <div  class="item-game-genre">
+                <a th:each="item : ${lstMenu}" th:text="${item.getName()}" href="#"></a>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" name="search" placeholder="Search game">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="button-menu">
+            <div class="download active-menu">
+                <img width="12px" height="12px" th:src="@{/img/icon/download.png}" alt="download">
+                <span>Tải phần mềm</span>
+            </div>
+            <div class="acount">
+                <img width="12px" height="12px" th:src="@{/img/icon/account.png}" alt="">
+                <span>My Account</span>
+            </div>
+            <div class="cart" style="text-align: center; padding-right: 20px;">
+                <span th:text="${basketSize}" class="number">0</span>
+                <i class="fas fa-shopping-cart"></i>
+                <a th:href="@{'/parcel'}">Gỏi Hàng</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- end ./ header -->
+
+
+<div th:fragment="header-detail"  class="header-container">
+    <div class="header">
+        <div class="logo"></div>
+        <div class="home">
+            <img th:src="@{/img/icon/home.png}" style="margin-right: 2px;">
+            <a style="color: #2CBCFC;" th:href="@{/home}" >Home</a>
+        </div>
+        <div class="wrapper-gametype">
+            <div class="game-type">
+                <img th:src="@{/img/icon/gamecata.png}" style="margin-right: 4px;">
+                <span>Thể loại game</span>
+                <div class="gametype-item">
+                    <a th:each="item : ${lstMenu}" th:text="${item.getName()}" href="#"></a>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search game">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <div class="header-button">
+            <div class="download">
+                <img style="background: none; margin-right: 4px;" width="12px" height="12px" th:src="@{/img/icon/download.png}">
+                <span>Tải phần mềm</span>
+            </div>
+            <div class="account">
+                <div class="my-account">
+                    <img th:src="@{/img/icon/avatar.png}">
+                    <span>My Account</span>
+                    <div class="profile">
+                        <div class="acc">
+                            <img th:src="@{/img/icon/avatar.png}">
+                            <div class="username">TuanlvEC</div>
+                        </div>
+                        <div class="balance">
+                            <div class="available">
+                                <span>Số dư khả dụng</span>
+                                <span>300.000 đ</span>
+                            </div>
+                            <div class="pendding">
+                                <span>Số dư Pendding</span>
+                                <span>700.000 đ</span>
+                            </div>
+                        </div>
+                        <div class="nav">
+                            <a href="#">Quản lý shop</a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="nav">
+                            <a href="#">Lịch sử giao dịch</a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="nav">
+                            <a href="#">Nạp tiền</a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="nav">
+                            <a href="#">Đăng xuất</a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="favorite">
+                <span th:text="${loveSize}" class="badge">1</span>
+                <i style="color: #2CBCFC; margin-right: 5px;" class="fa fa-heart" aria-hidden="true"></i>
+                <span>Yêu thích</span>
+            </div>
+        </div>
+
+    </div> <!--end header-->
+</div> <!--end header-container-->
+</div>

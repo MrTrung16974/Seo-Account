@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background: linear-gradient(180deg, rgba(3,18,33,1) 0%, rgba(7,23,47,1) 100%);
+}
+.clear {
+    clear: both;
+}
+a:hover {
+    text-decoration: none;
+}
+/* start ./ header */
+nav.header {
+    background: linear-gradient(90deg, rgba(17,39,62,1) 0%, rgba(3,6,11,1) 100%);
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+nav.header div.container.fix {
+    display: flex;
+}
+nav.header div.container div.logo {
+    background: url(../img/icon/logo.png) no-repeat;
+    width: 115px;
+    height: 45px;
+    background-size: contain;
+}
+nav.header div.container > div.game-genre {
+    padding-top: 20px;
+    color: #2CBCFC;
+    padding-left: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.home,.search,.button-menu {
+    height: 60px;
+    line-height: 60px;
+    color: #2CBCFC;
+    padding: 0 36px;
+    position: relative;
+    cursor: pointer;
+}
+nav.header div.container div.search > input {
+    background: none;
+    border-radius: 6px;
+    border: 1px solid #195D82;
+    width: 210px;
+    color: #fff;
+    cursor: pointer;
+    height: 30px;
+    padding: 5px 3px;
+}
+nav.header div.container div.search > i {
+    position: absolute;
+    top: 40%;
+    right: 45px;
+    color: #fff;
+}
+nav.header div.container div.button-menu > div.active-menu {
+    background: #14a2df;
+    color: #fff;
+}
+nav.header div.container div.button-menu > div {
+    border: 1px solid #195D82;
+    width: 128px;
+    height: 26px;
+    line-height: 26px;
+    margin-left: 5px;
+    border-radius: 8px;
+    background: #0d2237;
+    text-align: center;
+}
+
+nav.header div.container div.button-menu {
+    display: flex;
+    margin-top: 17px;
+    cursor: pointer;
+}
+nav.header div.container div.button-menu > div > img{
+    width: 14px;
+    height: 13px;
+
+}
+nav.header div.container div.button-menu div.cart:hover {
+    border: 1px solid #2CBCFC ;
+}
+nav.header div.container div.button-menu div.acount:hover {
+    border: 1px solid #2CBCFC ;
+}
+nav.header div.container div.button-menu div.cart > span.number {
+    position: relative;
+    bottom: 10px;
+    left: 107px;
+    background-color: red;
+    color: #000;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    text-align: center;
+    line-height: 17px;
+    border-radius: 50%;
+}
+nav.header div.container div.game-genre > div.item-game-genre {
+    display: none;
+    background: linear-gradient(90deg, rgba(17,39,62,1) 0%, rgba(3,6,11,1) 100%);
+    position: absolute;
+    top: 60px;
+    width: 260px;
+    left: 0px;
+    height: 150px;
+    z-index: 10;
+}
+nav.header div.container div.game-genre:hover   > div.item-game-genre{
+    display: block;
+
+}
+nav.header div.container div.game-genre > div.item-game-genre > a{
+    width: 130px;
+    height: 20px;
+    padding: 15px;
+    display: block;
+    float: left;
+    line-height: 0px;
+    text-decoration: none;
+}
+nav.header div.container div.game-genre > div.item-game-genre > a:hover {
+    background: #0d2237;
+    color: #2CBCFC;
+}
+/* end ./ header */
+
+/* start ./ banner */
+div.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/icon/bg.png);
+    width: 100%;
+    min-height: 650px;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+    background-position-y: -40px;
+}
+div.banner div.wapper {
+    line-height: 1.8;
+    width: 900px;
+    padding-right: 100px;
+    align-items: flex-start;
+}
+div.banner div.overlay-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(0deg, rgba(5,19,37,1) 0%, rgba(255,255,255,0) 100%);
+}
+div.banner div.wapper > a {
+    color: #fff;
+    background: #2CB0FC;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    padding: 3px;
+    border-radius: 4px;
+    transition: 1s;
+    display: inline-block;
+    margin-top: 25px;
+}
+div.banner div.wapper > a:hover {
+    background : #195d82;
+}
+/* end ./ banner */
+
+/* start ./ content */
+div.content {
+    position: relative;
+    top: -100px;
+    background: linear-gradient(45deg, rgba(12,27,44,1) 50%, rgba(4,7,13,1) 100%);
+    box-shadow: 0px 5px 21px 0px rgba(0, 0, 0, 1);
+}
+div.content div.menu {
+    display: flex;
+    height: 60px;
+    line-height: 60px;
+    color: #2A96C8;
+    background: linear-gradient(90deg, rgba(17,39,62,1) 0%, rgba(3,6,11,1) 100%);
+}
+.game-flatform,.menu,.steam,.origin,.uplay,.ubiisoft,.god,.blizzard {
+    height: inherit;
+    flex-grow: 1;
+    cursor: pointer;
+}
+div.content div.menu div.game-flatform {
+    text-align: center;
+}
+div.content div.menu div.active-top {
+    border-bottom: 3px solid #35befc;
+    background-color: #07111b;
+}
+div.content div.menu div.fix {
+    text-align: center;
+}
+div.content div.menu div.fix:hover {
+    border-bottom: 3px solid #35befc;
+    background-color: #07111b;
+}
+div.content div.top-content {
+    padding: 0 20px;
+}
+div.content div.top-content div.sort-item {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    margin-top: 20px;
+    display: flex;
+    border: 2px solid #0078BA;
+    border-radius: 4px;
+    color: #fff;
+}
+div.content div.top-content div.sort-item > a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px	;
+    background-color: #123D5A;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    display: inline-block;
+}
+div.content div.top-content div.sort-item > select {
+    border: none;
+    background: #0d2237;
+    display: inline-block;
+    padding: 8px;
+    width: 150px;
+    text-align: center;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: #fff;
+    -webkit-appearance: none;
+}
+i.fas.fa-chevron-down {
+    position: absolute;
+    line-height: 34px;
+    right: 10px;
+    z-index: 20;
+}
+
+div.content div.top-content div.list-game, div.list-game-content {
+    margin-top: 90px;
+    height: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+}
+
+div.col-game  {
+    position: relative;
+    background-image: url(..img/gamebg/bg5.jpg);
+    background-size: cover;
+    align-items: flex-end;
+    justify-content: center;
+    background-position: center;
+}
+
+div.col-game > a {
+    position: absolute;
+    right: 0;
+    font-size: 10px;
+    width: 25px;
+    height: 15px;
+    background: red;
+    text-align: center;
+    border-radius: 4px;
+    line-height: 15px;
+    color: #fff;
+}
+div.col-game > div.info-game {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 3px 5px;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+}
+div.col-game > div.info-game a.title-game {
+    text-decoration: none;
+    color: #fff;
+}
+div.col-game > div.info-game p.prices-game {
+    font-size: 10px;
+    color: red;
+}
+div.col-game > div.more-game {
+    position: absolute;
+    right: 6px;
+    bottom: 9px;
+    color: red;
+    font-size: 13px;
+}
+div.col-game > div.more-game > a {
+    border: 1px solid #0078BA;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgb(9, 69, 93, 0.5);
+    transition: background-color 0.5s
+}
+div.col-game > div.more-game > span:hover {
+    background-color: #00b1ff;
+}
+
+div.content div.top-content div.pagination {
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    display: block;
+}
+
+div.content div.top-content div.pagination > a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    background-color: #0A5C81;
+    border-radius: 4px;
+    line-height: 20px;
+    text-align: center;
+}
+div.content div.top-content div.pagination > a.active {
+    background-color: #00b1ff;
+}
+div.content div.top-content div.pagination > a:hover {
+    background-color: #00b1ff;
+}
+div.content div.top-game {
+    display: flex;
+    background: linear-gradient(90deg, rgba(17,39,62,1) 0%, rgba(3,6,11,1) 100%);
+    text-transform: uppercase;
+    margin-top: 25px;
+    text-align: center;
+}
+div.content div.top-game div {
+    padding: 20px;
+    color: #35BEFC;
+    flex-grow: 1;
+    cursor: pointer;
+}
+div.content div.top-game div:hover{
+    transition: background-color 0.5s;
+    color: #35BEFC;
+    background-color: #07111B;
+    border-bottom: 2px solid #35BEFC;
+}
+div.content div.top-game div.active-div {
+    transition: background-color 0.5s;
+    color: #35BEFC;
+    background-color: #07111B;
+    border-bottom: 2px solid #35BEFC;
+}
+div.content div.content-moregame {
+    padding: 20px;
+    height: 900px;
+    position: relative;
+}
+div.content div.content-moregame div.slide-top div.carousel-caption.d-none.d-md-block {
+    z-index: 100;
+    text-align: justify;
+    font-size: 22px;
+    position: absolute;
+    left: 30px;
+}
+div.content div.content-moregame div.slide-top div.carousel-caption.d-none.d-md-block > p {
+    font-size: 14px;
+    color: #C7C6C6;
+}
+div.content-moregame div.list-game-content div.all-game {
+    position: absolute;
+    right: 20px;
+    bottom: 110px;
+    color: #36C0FE;
+}
+/* end ./ content */
+
+/* start ./ header */
+footer.footer {
+    display: flex;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #fff;
+}
+footer.footer div {
+    padding: 12px;
+}
+footer.footer div h5 {
+    color: #fff;
+    font-size: 15px;
+}
+footer.footer div > div> a{
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+div.container span.copyright {
+    color: #fff;
+    width: 100%;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 0px 70px 0px;
+
+}
+/* end ./ header */
+
+div.messenger {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    margin-left: -100px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+
+/*start ./PARCEL*/
+div.content-parcle {
+    color: #fff;
+    padding: 12px;
+    margin: 100px 0px;
+}
+div.content-parcle div.container div.my-game {
+    display: flex;
+    padding: 12px;
+}
+div.content-parcle div.container div.my-game div.btn {
+    width: 170px;
+    position: relative;
+    right: 0;
+}
+div.content-parcle div.container div.my-game div.btn a > i {
+    color: #fff;
+}
+div.content-parcle div.container div.my-game div.price {
+    width: 140px;
+}
+div.content-parcle div.container div.my-game div.info-game {
+    width: 60%;
+    padding: 4px 5px;
+    width: 700px;
+}
+div.content-parcle div.container div.my-game div.info-game a {
+    color: white;
+    font-size: 22px;
+}
+div.content-parcle div.container div.my-game p.describe-game {
+    color: #C7C6C6;
+    font-size: 14px;
+}
+div.content-parcle div.container > a {
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    padding: 6px 14px;
+    border: 1px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+div.content-parcle div.container > a:hover {
+    color: #2CBAFA;
+    border-color: #2CBAFA;
+    transition: all 0.5s;
+}
+
+/*END ./PARCEL*/

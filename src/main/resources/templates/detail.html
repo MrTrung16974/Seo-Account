@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icon/Origin.png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seo Account</title>
+    <link rel="icon" th:href="@{/img/icon/Origin.png}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/css/style_detail.css}">
+</head>
+<body>
+
+<!-- start ./ header-->
+<div th:replace="/default/header :: header-detail"> </div>
+<!--end ./ header-->
+
+<!-- start ./ support-->
+<div th:replace="/default/footer :: support-detail"> </div>
+<!--end ./ support-->
+
+<div class="content-container">
+    <div th:style="'background-image: url(/img/gamebg/bg'+ ${game.getImage()} +'.jpg);'" class="video">
+        <div class="play">
+            <i class="fa fa-play" aria-hidden="true"></i>
+        </div>
+        <div class="like">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            <span>Like 112K</span>
+        </div>
+        <div class="rental-block">
+            <img th:src="@{'/img/gamebg/bg' +${game.getImage()} + '.jpg'}">
+            <div class="rental-info">
+                <div class="title">
+                        <span th:text="${game.getName()}" style="color: white; font-size: 20px;">
+                            Ring Of Elysium
+                        </span>
+                    <span th:text="'-' +${game.getPromation() + '%'}" class="discount">-70%</span>
+                </div>
+                <div class="rate">
+                    <i th:each="i:${#numbers.sequence(1,5)}" th:class="${game.getStar() >= i ?
+                    'fa fa-star' : 'fa fa-star-o'}" class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <span th:text="${game.getOldPrice()}" style="color: #EB7F02; font-size: 12px;"><del>1.700.000 VND</del></span>
+                <span th:text="${game.getNewPrice()}" style="color: #EB7F02; font-size: 16px;">700.000 VND</span>
+                <div class="rent">
+                    <div class="rent-game"><a href="#">Thuê game</a></div>
+                    <div class="price"><a href="#">3.000đ/3h</a></div>
+                </div>
+            </div>
+        </div>
+    </div> <!--end video-->
+    <div class="navigation">
+        <div id="btn-detail" style="flex-grow: 1;" class="active"><span>Chi tiết sản phẩm</span></div>
+        <div id="btn-config" style="flex-grow: 1;"><span>Thông tin cấu hình</span></div>
+        <div id="btn-rate" style="flex-grow: 1;"><span>Đánh giá (2)</span></div>
+    </div> <!--end navigation-->
+    <div class="content-wraper">
+        <div style="display: block;" id="game-detail" class="game-info">
+                    <span>
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    </span>
+        </div>
+        <div style="display: none;" id="game-config" class="game-info">
+            <b>Cấu hình tối thiểu:</b>
+            <p>CPU: Core i5 2500K, Ram 8GB, Card đồ họa: GTX 670</p>
+            <b>Cấu hình đề nghị:</b>
+            <p>CPU: Core i7 4790, Ram 8GB, Card đồ họa: GTX 970</p>
+            <b>Cấu hình cao cấp:</b>
+            <p>CPU: Core i7 6700k, Ram 16 GB, Card đồ họa: GTX 1070</p>
+            <b>Cấu hình 4k:</b>
+            <p>CPU: Core i9 7900k, Ram 16 GB, Card đồ họa: RTX 2080 Ti</p>
+
+        </div>
+        <div style="display: none;" id="game-rate" class="game-info">
+            <div class="widget-area no-padding blank">
+                <div class="status-upload">
+                    <form>
+                        <textarea placeholder="What are you doing right now?" ></textarea>
+                        <ul>
+                            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+                        </ul>
+                        <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Comment</button>
+                    </form>
+                </div><!-- Status Upload  -->
+            </div><!-- Widget Area -->
+            <div  style="color: white; display: block; margin-top: 30px;" class="media">
+                <img width = "40px" height="40px" th:src="@{/img/icon/account.png}" class="mr-3" alt="...">
+                <div class="media-body">
+                    <h5 class="mt-0">Media heading</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                    <div class="media mt-3">
+                        <a class="mr-3" href="#">
+                            <img width = "40px" height="40px" th:src="@{/img/icon/avatar.png}" class="mr-3" alt="...">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="mt-0">Media heading</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end game-info-->
+        <div class="more-games">
+            <span class="same-type">Game cùng thể loại</span>
+            <div class="list-game">
+                <div th:each="gameGood : ${goodLstGame}" class="game-item"
+                     th:style="'background-image: url(/img/gamebg/bg'+ ${gameGood.getImage()} +'.jpg);'">
+                    <span  class="discount">-70%</span>
+                    <div class="overlay">
+                        <div class="info-game">
+                            <a th:href="@{${'/seo/' + gameGood.getId() + '/detail'}}" th:text="${gameGood.getName()}" style="color: white; font-size: 14px;">Fortnite Battle Royale</a>
+                            <span th:text="${gameGood.getOldPrice()}" style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
+                            <span  th:text="${gameGood.getNewPrice()}" style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
+                        </div>
+                        <div class="like-buy-game">
+                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
+                            <a th:href="@{'/home/'+ ${game.getId()}}">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--end list-game-->
+        </div> <!--end more-games-->
+    </div>
+
+</div> <!--end content-container-->
+
+
+<!-- start ./ footer-->
+<div th:replace="/default/footer :: footer-detail"> </div>
+<!--end ./ footer-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $("[data-toggle=tooltip]").tooltip();
+        $("#btn-config").click(function() {
+            $("#btn-config").addClass('active');
+            $("#btn-detail").removeClass('active');
+            $("#btn-rate").removeClass('active');
+            $("#game-config").css('display', 'block');
+            $("#game-detail").css('display', 'none');
+            $("#game-rate").css('display', 'none');
+        });
+
+        $("#btn-detail").click(function() {
+            $("#btn-config").removeClass('active');
+            $("#btn-detail").addClass('active');
+            $("#btn-rate").removeClass('active');
+            $("#game-config").css('display', 'none');
+            $("#game-detail").css('display', 'block');
+            $("#game-rate").css('display', 'none');
+        });
+
+        $("#btn-rate").click(function() {
+            $("#btn-config").removeClass('active');
+            $("#btn-detail").removeClass('active');
+            $("#btn-rate").addClass('active');
+            $("#game-config").css('display', 'none');
+            $("#game-detail").css('display', 'none');
+            $("#game-rate").css('display', 'block');
+        });
+    });
+
+</script>
+</body>
+</html>
