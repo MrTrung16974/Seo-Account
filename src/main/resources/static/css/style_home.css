@@ -253,14 +253,21 @@ i.fas.fa-chevron-down {
     right: 10px;
     z-index: 20;
 }
-
-div.content div.top-content div.list-game, div.list-game-content {
+div.content div.top-content div.list-game {
     margin-top: 90px;
     height: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+div.content div.content-moregame div.list-game-content {
+    margin-top: 90px;
+    height: 540px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    grid-template-rows: 1fr 1fr 1fr;
 
 }
 
@@ -330,15 +337,14 @@ div.col-game > div.more-game > a {
 div.col-game > div.more-game > span:hover {
     background-color: #00b1ff;
 }
-
-div.content div.top-content div.pagination {
+div.pagination {
     text-align: center;
     padding: 20px 0;
     color: #fff;
     display: block;
 }
 
-div.content div.top-content div.pagination > a{
+div.pagination > a{
     display: inline-block;
     color: #fff;
     text-decoration: none;
@@ -350,10 +356,10 @@ div.content div.top-content div.pagination > a{
     line-height: 20px;
     text-align: center;
 }
-div.content div.top-content div.pagination > a.active {
+div.pagination > a.active {
     background-color: #00b1ff;
 }
-div.content div.top-content div.pagination > a:hover {
+div.pagination > a:hover {
     background-color: #00b1ff;
 }
 div.content div.top-game {
@@ -383,7 +389,7 @@ div.content div.top-game div.active-div {
 }
 div.content div.content-moregame {
     padding: 20px;
-    height: 900px;
+    height: 1070pxpx;
     position: relative;
 }
 div.content div.content-moregame div.slide-top div.carousel-caption.d-none.d-md-block {

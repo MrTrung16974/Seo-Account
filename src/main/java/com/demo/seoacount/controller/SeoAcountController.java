@@ -3,7 +3,11 @@ package com.demo.seoacount.controller;
 import com.demo.seoacount.model.Game;
 import com.demo.seoacount.model.ListMenu;
 import com.demo.seoacount.model.MenuItem;
+import com.demo.seoacount.repository.CategoryRepository;
+import com.demo.seoacount.repository.GameRepository;
+import com.demo.seoacount.repository.MenuRepository;
 import com.demo.seoacount.utils.Contant;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,17 @@ import java.util.Set;
 
 @Controller
 public class SeoAcountController {
+
+    @Autowired
+    private GameRepository gameRepository;
+
+    @Autowired
+    private MenuRepository menuRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+
 //    list menu header
     private List<ListMenu> lstMenu = new ArrayList<>();
 //    list menu content
@@ -30,85 +45,19 @@ public class SeoAcountController {
     private Set<Game> loveGame = new HashSet<>();
 //    slide game
     private List<Game> slideGame = new ArrayList<>();
-    @PostConstruct
-    public void mockData() {
-//    insert data for lst Menu header
-        lstMenu.add(new ListMenu("Hành động"));
-        lstMenu.add(new ListMenu("Băn súng"));
-        lstMenu.add(new ListMenu("Game ARBG"));
-        lstMenu.add(new ListMenu("RBG"));
-        lstMenu.add(new ListMenu("Sport"));
-        lstMenu.add(new ListMenu("Puzzel"));
-        lstMenu.add(new ListMenu("Racing"));
-        lstMenu.add(new ListMenu("Casual"));
-        lstMenu.add(new ListMenu("Strategy"));
-        lstMenu.add(new ListMenu("Adventure"));
-
-//        insert data for Menu content
-        lstItem.add(new MenuItem("Steam", "steam"));
-        lstItem.add(new MenuItem("Origin", "Origin"));
-        lstItem.add(new MenuItem("Uplay", "Uplay-icon"));
-        lstItem.add(new MenuItem("Ubiisoft", "Ubiisoft_logo"));
-        lstItem.add(new MenuItem("GOD", "steam"));
-        lstItem.add(new MenuItem("Blizzard", "blizzard"));
-
-//       insert data for all game
-        allLstGame.add(new Game(1, "Con cha", 12, "1.700.000", "700.000", "1" , 5));
-        allLstGame.add(new Game(2, "Liên Quân", 73, "1.700.000", "700.000", "2", 3 ));
-        allLstGame.add(new Game(3, "identity V", 70, "1.700.000", "700.000", "3", 5 ));
-        allLstGame.add(new Game(4,"mario", 72, "1.700", "20.000", "4", 4 ));
-        allLstGame.add(new Game(5, "LOL", 70, "1.400.000", "800.000", "5", 2 ));
-        allLstGame.add(new Game(6,"Fortnite Royale", 80, "1.700.000", "700.000", "6" ,3));
-        allLstGame.add(new Game(7, "Fortnite Battle", 50, "1.000.000", "500.000", "9", 5 ));
-        allLstGame.add(new Game(8,"Pikachu", 50, "1.000.000", "500.000", "9", 4 ));
-        allLstGame.add(new Game(9,"Fortnite Battle", 70, "1.700.000", "501.000", "9", 3 ));
-        allLstGame.add(new Game(11, "Battle Royale", 75, "1.100.000", "7.000", "10", 2 ));
-        allLstGame.add(new Game(11, "Fortnite Battle Royale", 10, "1.500.000", "70.000", "11", 3 ));
-        allLstGame.add(new Game(12, "Destity", 30, "1.710.000", "760.000", "12", 3 ));
-        allLstGame.add(new Game(13, "Con cha", 12, "1.700.000", "700.000", "1" , 5));
-        allLstGame.add(new Game(14, "Liên Quân", 73, "1.700.000", "700.000", "2", 3 ));
-        allLstGame.add(new Game(15, "identity V", 70, "1.700.000", "700.000", "3", 5 ));
-        allLstGame.add(new Game(16,"mario", 72, "1.700", "20.000", "4", 4 ));
-        allLstGame.add(new Game(17, "Fortnite Battle", 50, "1.000.000", "500.000", "9", 5 ));
-        allLstGame.add(new Game(18,"Pikachu", 50, "1.000.000", "500.000", "9", 4 ));
-        allLstGame.add(new Game(19,"Fortnite Battle", 70, "1.700.000", "501.000", "9", 3 ));
-        allLstGame.add(new Game(20, "Battle Royale", 75, "1.100.000", "7.000", "10", 2 ));
-        allLstGame.add(new Game(21, "Fortnite Battle Royale", 10, "1.500.000", "70.000", "11", 3 ));
-        allLstGame.add(new Game(22, "Destity", 30, "1.710.000", "760.000", "12", 3 ));
-        allLstGame.add(new Game(23, "Con cha", 12, "1.700.000", "700.000", "11" , 5));
-        allLstGame.add(new Game(24, "Liên Quân", 73, "1.700.000", "700.000", "2", 3 ));
-        allLstGame.add(new Game(25, "identity V", 70, "1.700.000", "700.000", "3", 5 ));
-        allLstGame.add(new Game(26,"mario", 72, "1.700", "20.000", "3", 4 ));
-        allLstGame.add(new Game(27, "LOL", 70, "1.400.000", "800.000", "5", 2 ));
-        allLstGame.add(new Game(28,"Fortnite Royale", 80, "1.700.000", "700.000", "7" ,3));
-        allLstGame.add(new Game(29, "Fortnite Battle", 50, "1.000.000", "500.000", "8", 5 ));
-        allLstGame.add(new Game(30,"Pikachu", 50, "1.000.000", "500.000", "9", 4 ));
-        allLstGame.add(new Game(31,"Fortnite Battle", 70, "1.700.000", "501.000", "11", 3 ));
-        allLstGame.add(new Game(32, "Battle Royale", 75, "1.100.000", "7.000", "10", 2 ));
-        allLstGame.add(new Game(33, "Fortnite Battle Royale", 10, "1.500.000", "70.000", "11", 3 ));
-        allLstGame.add(new Game(34, "Destity", 30, "1.710.000", "760.000", "10", 3 ));
-
-
-//        insert data for good game
-        goodLstGame.add(new Game(6,"Fortnite Royale", 80, "1.700.000", "700.000", "6" ,3));
-        goodLstGame.add(new Game(3,"identity V", 70, "1.700.000", "700.000", "3", 5 ));
-        goodLstGame.add(new Game(1, "Con cha", 12, "1.700.000", "700.000", "1", 5 ));
-        goodLstGame.add(new Game(12, "Destity", 30, "1.710.000", "760.000", "12", 3 ));
-        goodLstGame.add(new Game(11, "Fortnite Battle Royale", 10, "1.500.000", "70.000", "11", 3 ));
-        goodLstGame.add(new Game(9, "Fortnite Battle", 70, "1.700.000", "501.000", "9", 3 ));
-
-//        insert data for slide game
-        slideGame.add(new Game(12, "Destity", 30, "1.710.000", "760.000", "12", 3 ));
-        slideGame.add(new Game(11, "Fortnite Battle Royale", 10, "1.500.000", "70.000", "11", 3 ));
-        slideGame.add(new Game(9, "Fortnite Battle", 70, "1.700.000", "501.000", "9", 3 ));
-    }
 
     @RequestMapping("/home")
-    public String home(Model model,  @RequestParam(value = "Page", defaultValue = "0") int page,
+    public String home(Model model,  @RequestParam(value = "Page", defaultValue = "0") int page, @RequestParam(value = "PageGood", defaultValue = "0") int pageGood,
                        @RequestParam(value = "filter", defaultValue = "0") int filter) {
+        lstMenu = categoryRepository.findAll();
+        goodLstGame = gameRepository.findGoodGame(5);
+        slideGame = gameRepository.findSlideGame(10);
+        lstItem = menuRepository.findAll();
+        allLstGame = gameRepository.findAll();
         int basketSize = (basketGame.size());
         int loveSize = (loveGame.size());
         List<Game> gameOfPage = new ArrayList<>();
+        List<Game> goodGameOfPage = new ArrayList<>();
 
         int index = page * Contant.PAGE_SIZE;
         int lengthGame = page * Contant.PAGE_SIZE + Contant.PAGE_SIZE > allLstGame.size() ? allLstGame.size() :
@@ -118,21 +67,33 @@ public class SeoAcountController {
             Game game = allLstGame.get(i);
             gameOfPage.add(game);
         }
-
         int totalPage = allLstGame.size() % Contant.PAGE_SIZE != 0
                 ? (allLstGame.size()/Contant.PAGE_SIZE )
                 : (allLstGame.size()/Contant.PAGE_SIZE -1);
+
+        int indexGood = pageGood * Contant.PAGE_GOOD_SIZE;
+        int lengthGameGood =  pageGood * Contant.PAGE_GOOD_SIZE + Contant.PAGE_GOOD_SIZE > goodLstGame.size() ? goodLstGame.size() :
+                pageGood * Contant.PAGE_GOOD_SIZE + Contant.PAGE_GOOD_SIZE;
+        for (int i = indexGood; i < lengthGameGood; i++) {
+            Game game = goodLstGame.get(i);
+            goodGameOfPage.add(game);
+        }
+
+        int totalGoodPage = goodLstGame.size() % Contant.PAGE_GOOD_SIZE != 0
+                ? (goodLstGame.size()/Contant.PAGE_GOOD_SIZE )
+                : (goodLstGame.size()/Contant.PAGE_GOOD_SIZE -1);
         model.addAttribute("listGame", gameOfPage);
 //        sau sẽ ko dùng size nưa sẽ dùng hàm đếm số phần tử trong database
         model.addAttribute("totalPage", totalPage);
         model.addAttribute("currentPage", page);
-
+        model.addAttribute("currentGoodPage", pageGood);
+        model.addAttribute("totalGoodPage", totalGoodPage);
         model.addAttribute("lstMenu", lstMenu );
         model.addAttribute("lstItem", lstItem );
         model.addAttribute("basketGame", basketGame);
         model.addAttribute("loveGame", loveGame);
         model.addAttribute("gameOfPage", gameOfPage);
-        model.addAttribute("goodLstGame", goodLstGame);
+        model.addAttribute("goodLstGame", goodGameOfPage);
         model.addAttribute("basketSize", basketSize);
         model.addAttribute("loveSize", loveSize);
         model.addAttribute("slideGame", slideGame);

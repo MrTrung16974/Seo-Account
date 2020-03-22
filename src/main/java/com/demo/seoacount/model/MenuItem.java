@@ -1,12 +1,40 @@
 package com.demo.seoacount.model;
 
-public class MenuItem {
-    private String name;
-    private String img;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-    public MenuItem(String name, String img) {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Table(name = "menu")
+@EntityListeners(AuditingEntityListener.class)
+@Entity
+public class MenuItem implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "image")
+    private String image;
+
+    public MenuItem() {
+
+    }
+
+    public MenuItem(int id, String name, String image) {
+        this.id = id;
         this.name = name;
-        this.img = img;
+        this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -17,11 +45,20 @@ public class MenuItem {
         this.name = name;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 }

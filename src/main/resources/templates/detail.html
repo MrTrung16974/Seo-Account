@@ -23,8 +23,12 @@
 <!--end ./ support-->
 
 <div class="content-container">
+    <div style="display: none;" id="trailer" class="trailer">
+        <iframe  width="800" id="#trailer_movie" class="trailer_movie" height="400" th:src="@{${game.getTrailer()}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="background-fix" style="display: none;"></div>
     <div th:style="'background-image: url(/img/gamebg/bg'+ ${game.getImage()} +'.jpg);'" class="video">
-        <div class="play">
+        <div id="play" class="play">
             <i class="fa fa-play" aria-hidden="true"></i>
         </div>
         <div class="like">
@@ -146,6 +150,18 @@
 <script>
     $(document).ready(function () {
         $("[data-toggle=tooltip]").tooltip();
+        $("#play").click(function () {
+            $("#trailer").css('display', 'block');
+            $("div.background-fix").css('display', 'block');
+        });
+        $("div.background-fix").click(function () {
+            $("#trailer").css('display', 'none');
+            $("div.background-fix").css('display', 'none');
+            $('.trailer_movie').each(function(){
+                var el_src = $(this).attr("src");
+                $(this).attr("src",el_src);
+            });
+        });
         $("#btn-config").click(function() {
             $("#btn-config").addClass('active');
             $("#btn-detail").removeClass('active');

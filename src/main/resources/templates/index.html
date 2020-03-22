@@ -37,7 +37,7 @@
                 <span>GAME FLATFORM</span>
             </div>
             <div th:each="item,iter : ${lstItem}" th:class="${iter.index == 0 ? 'steam fix active-top' : 'steam fix'}">
-                <img width="20" height="20" th:src="@{'/img/icon/' + ${item.getImg()} + '.png'}" alt="steam">
+                <img width="20" height="20" th:src="@{'/img/icon/' + ${item.getImage()} + '.png'}" alt="steam">
                 <span th:text="${item.getName()}">Steam</span>
             </div>
         </div>
@@ -76,7 +76,7 @@
                    th:href="@{'home?Page=' + ${i}}" th:text="${i+1}">
                 </a>
                 <span>...</span>
-                <a style="width: 40px;" th:href="@{'home?Page=' + ${1}}">Next</a>
+                <a style="width: 40px;" th:href="@{'home?Page=' + ${currentPage >= totalPage ? currentPage : currentPage+1}}">Next</a>
             </div> <!--end pagination-->
         </div>
         <div class="top-game">
@@ -123,10 +123,18 @@
                     </div>
                     <div class="more-game">
                         <a th:href="@{'/love/' + ${game.getId()}}"><i class="far fa-heart"></i></a>
-                        <a th:href="@{'/home/'+ ${game.getId()}}" >Thêm vào giỏ</a>
+                        <a th:href="@{'/home/'+ ${game.getId()}}" >Thêm vào giỏ</a>totalGoodPage
                     </div>
                 </div>
             </div>
+            <div class="pagination" >
+                <a th:each="i : ${#numbers.sequence(0,totalGoodPage)}"
+                   th:class="${currentGoodPage == i} ? 'active' : 'inactive'"
+                   th:href="@{'home?PageGood=' + ${i}}" th:text="${i+1}">
+                </a>
+                <span>...</span>
+                <a style="width: 40px;" th:href="@{'home?PageGood=' + ${currentGoodPage >= totalGoodPage? currentGoodPage: currentGoodPage+1}}">Next</a>
+            </div> <!--end pagination-->
         </div>
     </div>
 </div>
